@@ -15,14 +15,14 @@ jobs:
       - checkout
       # The next step will download the dependencies.
       - run:
-          working_directory: ~/memotte/android
           name: Download Dependencies
           command: ./gradlew androidDependencies
+          working_directory: android
       # Then lint and run your tests!
       - run:
-          working_directory: ~/memotte/android
           name: Run Tests
           command: ./gradlew lint test
+          working_directory: android
 
 
 workflows:
