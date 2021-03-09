@@ -36,7 +36,7 @@ dependencies {
     implementation(Dependencies.Androidx.coreKtx)
     implementation(Dependencies.Androidx.appCompat)
     implementation(Dependencies.Androidx.material)
-    implementation(Dependencies.Androidx.material)
+    implementation(Dependencies.Androidx.constraintLayout)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)
