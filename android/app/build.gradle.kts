@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -19,7 +20,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -37,6 +41,11 @@ dependencies {
     implementation(Dependencies.Androidx.appCompat)
     implementation(Dependencies.Androidx.material)
     implementation(Dependencies.Androidx.constraintLayout)
+    implementation(Dependencies.Dagger.core)
+    kapt(Dependencies.Dagger.annotationProcessor)
+    implementation(Dependencies.Dagger.Android.core)
+    implementation(Dependencies.Dagger.Android.support)
+    kapt(Dependencies.Dagger.Android.annotationProcessor)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)

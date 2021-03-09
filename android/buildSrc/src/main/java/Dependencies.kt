@@ -15,6 +15,17 @@ object Dependencies {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.Androidx.constraintLayout}"
     }
 
+    object Dagger {
+        const val core = "com.google.dagger:dagger:${Versions.Dagger.dagger}"
+        const val annotationProcessor = "com.google.dagger:dagger-compiler:${Versions.Dagger.dagger}"
+
+        object Android {
+            const val core = "com.google.dagger:dagger-android:${Versions.Dagger.dagger}"
+            const val support = "com.google.dagger:dagger-android-support:${Versions.Dagger.dagger}"
+            const val annotationProcessor = "com.google.dagger:dagger-android-processor:${Versions.Dagger.dagger}"
+        }
+    }
+
     object Test {
         const val jUnit = "junit:junit:${Versions.Test.jUnit}"
     }

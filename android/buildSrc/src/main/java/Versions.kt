@@ -24,6 +24,10 @@ object Versions {
         const val constraintLayout = "2.0.4"
     }
 
+    object Dagger {
+        const val dagger = "2.33"
+    }
+
     object Test {
         const val jUnit = "4.13.2"
     }
