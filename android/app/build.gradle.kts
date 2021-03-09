@@ -46,6 +46,8 @@ dependencies {
     implementation(Dependencies.Dagger.Android.core)
     implementation(Dependencies.Dagger.Android.support)
     kapt(Dependencies.Dagger.Android.annotationProcessor)
+    implementation(Dependencies.JetPack.Room.runtime)
+    kapt(Dependencies.JetPack.Room.compiler)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)

@@ -15,6 +15,14 @@ object Dependencies {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.Androidx.constraintLayout}"
     }
 
+    object JetPack {
+        object Room {
+            const val runtime = "androidx.room:room-runtime:${Versions.JetPack.room}"
+            const val compiler = "androidx.room:room-compiler:${Versions.JetPack.room}"
+            const val ktx = "androidx.room:room-ktx:${Versions.JetPack.room}"
+        }
+    }
+
     object Dagger {
         const val core = "com.google.dagger:dagger:${Versions.Dagger.dagger}"
         const val annotationProcessor = "com.google.dagger:dagger-compiler:${Versions.Dagger.dagger}"

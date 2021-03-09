@@ -24,6 +24,10 @@ object Versions {
         const val constraintLayout = "2.0.4"
     }
 
+    object JetPack {
+        const val room = "2.2.6"
+    }
+
     object Dagger {
         const val dagger = "2.33"
     }
