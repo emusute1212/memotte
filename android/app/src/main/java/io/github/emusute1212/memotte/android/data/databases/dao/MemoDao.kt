@@ -1,4 +1,4 @@
-package io.github.emusute1212.memotte.android.data.dao
+package io.github.emusute1212.memotte.android.data.databases.dao
 
 import androidx.room.*
 import io.github.emusute1212.memotte.android.data.domain.MemoLocalDbEntity
