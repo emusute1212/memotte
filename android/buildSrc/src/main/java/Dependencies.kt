@@ -24,14 +24,9 @@ object Dependencies {
     }
 
     object Dagger {
-        const val core = "com.google.dagger:dagger:${Versions.Dagger.dagger}"
-        const val annotationProcessor = "com.google.dagger:dagger-compiler:${Versions.Dagger.dagger}"
-
-        object Android {
-            const val core = "com.google.dagger:dagger-android:${Versions.Dagger.dagger}"
-            const val support = "com.google.dagger:dagger-android-support:${Versions.Dagger.dagger}"
-            const val annotationProcessor = "com.google.dagger:dagger-android-processor:${Versions.Dagger.dagger}"
-        }
+        const val hiltCore = "com.google.dagger:hilt-android:${Versions.Dagger.hilt}"
+        const val annotationProcessor = "com.google.dagger:hilt-compiler:${Versions.Dagger.hilt}"
+        const val classPath = "com.google.dagger:hilt-android-gradle-plugin:${Versions.Dagger.hilt}"
     }
 
     object Test {

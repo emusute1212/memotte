@@ -29,7 +29,7 @@ object Versions {
     }
 
     object Dagger {
-        const val dagger = "2.33"
+        const val hilt = "2.33-beta"
     }
 
     object Test {

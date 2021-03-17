@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -41,13 +42,11 @@ dependencies {
     implementation(Dependencies.Androidx.appCompat)
     implementation(Dependencies.Androidx.material)
     implementation(Dependencies.Androidx.constraintLayout)
-    implementation(Dependencies.Dagger.core)
+    implementation(Dependencies.Dagger.hiltCore)
     kapt(Dependencies.Dagger.annotationProcessor)
-    implementation(Dependencies.Dagger.Android.core)
-    implementation(Dependencies.Dagger.Android.support)
-    kapt(Dependencies.Dagger.Android.annotationProcessor)
     implementation(Dependencies.JetPack.Room.runtime)
     kapt(Dependencies.JetPack.Room.compiler)
+    kapt(Dependencies.JetPack.Room.ktx)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)
