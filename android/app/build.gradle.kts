@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation(Dependencies.Kotlin.kotlin)
+    implementation(Dependencies.Kotlin.coroutine)
     implementation(Dependencies.Androidx.coreKtx)
     implementation(Dependencies.Androidx.appCompat)
     implementation(Dependencies.Androidx.material)

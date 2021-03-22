@@ -1,6 +1,7 @@
 object Dependencies {
     object Kotlin {
         const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.Kotlin.kotlin}"
+        const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.coroutine}"
     }
 
     object Gradle {
