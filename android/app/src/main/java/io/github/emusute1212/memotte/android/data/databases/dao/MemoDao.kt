@@ -10,7 +10,7 @@ interface MemoDao {
     suspend fun getAll(): Flow<List<MemoLocalDbEntity>>
 
     @Insert
-    suspend fun insert(users: MemoLocalDbEntity)
+    suspend fun insert(memo: MemoLocalDbEntity)
 
     @Update
     fun update(memo: MemoLocalDbEntity)
