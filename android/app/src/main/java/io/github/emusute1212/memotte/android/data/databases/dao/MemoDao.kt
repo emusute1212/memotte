@@ -13,8 +13,8 @@ interface MemoDao {
     suspend fun insert(memo: MemoLocalDbEntity)
 
     @Update
-    fun update(memo: MemoLocalDbEntity)
+    suspend fun update(memo: MemoLocalDbEntity)
 
     @Delete
-    fun delete(memo: MemoLocalDbEntity)
+    suspend fun delete(memo: MemoLocalDbEntity)
 }
