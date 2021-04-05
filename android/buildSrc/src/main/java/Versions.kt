@@ -33,6 +33,10 @@ object Versions {
         const val hilt = "2.33-beta"
     }
 
+    object ThirdParty {
+        const val threeTenAbp = "1.3.0"
+    }
+
     object Test {
         const val jUnit = "4.13.2"
     }

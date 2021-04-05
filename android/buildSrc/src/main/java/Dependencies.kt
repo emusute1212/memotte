@@ -30,6 +30,10 @@ object Dependencies {
         const val classPath = "com.google.dagger:hilt-android-gradle-plugin:${Versions.Dagger.hilt}"
     }
 
+    object ThirdParty {
+        const val threeTenAbp = "com.jakewharton.threetenabp:threetenabp:${Versions.ThirdParty.threeTenAbp}"
+    }
+
     object Test {
         const val jUnit = "junit:junit:${Versions.Test.jUnit}"
     }
