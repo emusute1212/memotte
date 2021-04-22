@@ -8,7 +8,9 @@ import io.github.emusute1212.memotte.android.data.domain.toMemoLocalDbEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class MemoRepository @Inject constructor(
     private val database: MemoDatabase
 ) {
