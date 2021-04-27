@@ -30,7 +30,7 @@ object Versions {
     }
 
     object Dagger {
-        const val hilt = "2.33-beta"
+        const val hilt = "2.35"
     }
 
     object ThirdParty {
