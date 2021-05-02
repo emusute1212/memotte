@@ -17,6 +17,8 @@ object Dependencies {
         const val material = "com.google.android.material:material:${Versions.Androidx.material}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.Androidx.constraintLayout}"
+        const val coordinatorLayout =
+            "androidx.coordinatorlayout:coordinatorlayout:${Versions.Androidx.coordinatorLayout}"
 
         object Lifecycle {
             const val ktx =
