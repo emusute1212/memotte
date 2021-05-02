@@ -1,19 +1,27 @@
 object Dependencies {
     object Kotlin {
         const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.Kotlin.kotlin}"
-        const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.coroutine}"
+        const val coroutine =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.coroutine}"
     }
 
     object Gradle {
         const val gradlePlugin = "com.android.tools.build:gradle:${Versions.Gradle.gradlePlugin}"
-        const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.kotlin}"
+        const val kotlinGradlePlugin =
+            "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.kotlin}"
     }
 
     object Androidx {
         const val coreKtx = "androidx.core:core-ktx:${Versions.Androidx.coreKtx}"
         const val appCompat = "androidx.appcompat:appcompat:${Versions.Androidx.appCompat}"
         const val material = "com.google.android.material:material:${Versions.Androidx.material}"
-        const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.Androidx.constraintLayout}"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout:${Versions.Androidx.constraintLayout}"
+
+        object Lifecycle {
+            const val ktx =
+                "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.Androidx.lifecycle}"
+        }
     }
 
     object JetPack {
@@ -31,7 +39,8 @@ object Dependencies {
     }
 
     object ThirdParty {
-        const val threeTenAbp = "com.jakewharton.threetenabp:threetenabp:${Versions.ThirdParty.threeTenAbp}"
+        const val threeTenAbp =
+            "com.jakewharton.threetenabp:threetenabp:${Versions.ThirdParty.threeTenAbp}"
     }
 
     object Test {

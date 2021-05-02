@@ -15,7 +15,7 @@ class MemoRepository @Inject constructor(
     private val database: MemoDatabase
 ) {
     @WorkerThread
-    suspend fun loadMemos(): Flow<List<MemoEntity>> {
+    fun loadMemos(): Flow<List<MemoEntity>> {
         return database.userDao().getAll().map { memos ->
             memos.map {
                 it.toMemoEntity()

@@ -43,6 +43,7 @@ dependencies {
     implementation(Dependencies.Androidx.appCompat)
     implementation(Dependencies.Androidx.material)
     implementation(Dependencies.Androidx.constraintLayout)
+    implementation(Dependencies.Androidx.Lifecycle.ktx)
     implementation(Dependencies.Dagger.hiltCore)
     kapt(Dependencies.Dagger.annotationProcessor)
     implementation(Dependencies.JetPack.Room.runtime)
