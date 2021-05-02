@@ -3,7 +3,7 @@ package io.github.emusute1212.memotte.android.data.domain
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.threeten.bp.LocalDate
+import org.threeten.bp.ZonedDateTime
 
 @Entity(tableName = "memos")
 data class MemoLocalDbEntity(
@@ -12,5 +12,5 @@ data class MemoLocalDbEntity(
     @ColumnInfo(name = "content")
     val content: String,
     @ColumnInfo(name = "create_on")
-    val createOn: LocalDate,
+    val createOn: ZonedDateTime,
 )
