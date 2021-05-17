@@ -55,6 +55,7 @@ dependencies {
     kapt(Dependencies.JetPack.Room.compiler)
     implementation(Dependencies.JetPack.Room.ktx)
     implementation(Dependencies.ThirdParty.threeTenAbp)
+    implementation(Dependencies.ThirdParty.groupie)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)

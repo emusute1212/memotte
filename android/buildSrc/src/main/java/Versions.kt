@@ -37,6 +37,7 @@ object Versions {
 
     object ThirdParty {
         const val threeTenAbp = "1.3.0"
+        const val groupie = "2.9.0"
     }
 
     object Test {

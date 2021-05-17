@@ -4,6 +4,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        maven { url = java.net.URI.create("https://jitpack.io") }
     }
     dependencies {
         classpath(Dependencies.Gradle.gradlePlugin)
