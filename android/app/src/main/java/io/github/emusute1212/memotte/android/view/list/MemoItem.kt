@@ -5,7 +5,7 @@ import io.github.emusute1212.memotte.android.R
 import io.github.emusute1212.memotte.android.data.domain.MemoEntity
 import io.github.emusute1212.memotte.android.databinding.MemoItemViewBinding
 
-class MemoItemView(
+class MemoItem(
     private val memoEntity: MemoEntity
 ) : BindableItem<MemoItemViewBinding>(
     memoEntity.id.toLong()

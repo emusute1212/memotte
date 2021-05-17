@@ -5,7 +5,7 @@ import io.github.emusute1212.memotte.android.R
 import io.github.emusute1212.memotte.android.databinding.MemoGroupItemViewBinding
 import org.threeten.bp.LocalDate
 
-class MemoGroupItemView(
+class MemoGroupItem(
     private val date: LocalDate
 ) : BindableItem<MemoGroupItemViewBinding>(
     date.hashCode().toLong()
