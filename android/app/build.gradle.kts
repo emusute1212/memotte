@@ -34,7 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
         dataBinding = true
     }
@@ -54,6 +54,8 @@ dependencies {
     implementation(Dependencies.JetPack.Room.runtime)
     kapt(Dependencies.JetPack.Room.compiler)
     implementation(Dependencies.JetPack.Room.ktx)
+    implementation(Dependencies.JetPack.Fragment.ktx)
+    implementation(Dependencies.JetPack.Activity.ktx)
     implementation(Dependencies.ThirdParty.threeTenAbp)
     implementation(Dependencies.ThirdParty.Groupie.core)
     implementation(Dependencies.ThirdParty.Groupie.databinding)

@@ -29,6 +29,8 @@ object Versions {
 
     object JetPack {
         const val room = "2.2.6"
+        const val fragment = "1.3.3"
+        const val activity = "1.2.3"
     }
 
     object Dagger {

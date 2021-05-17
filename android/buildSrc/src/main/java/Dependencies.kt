@@ -32,6 +32,14 @@ object Dependencies {
             const val compiler = "androidx.room:room-compiler:${Versions.JetPack.room}"
             const val ktx = "androidx.room:room-ktx:${Versions.JetPack.room}"
         }
+
+        object Fragment {
+            const val ktx = "androidx.fragment:fragment-ktx:${Versions.JetPack.fragment}"
+        }
+
+        object Activity {
+            const val ktx = "androidx.activity:activity-ktx:${Versions.JetPack.activity}"
+        }
     }
 
     object Dagger {
