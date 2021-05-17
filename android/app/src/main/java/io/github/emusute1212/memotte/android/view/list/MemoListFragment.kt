@@ -1,4 +1,4 @@
-package io.github.emusute1212.memotte.android
+package io.github.emusute1212.memotte.android.view.list
 
 import android.os.Bundle
 import android.view.LayoutInflater

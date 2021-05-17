@@ -3,6 +3,7 @@ package io.github.emusute1212.memotte.android
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.emusute1212.memotte.android.view.list.MemoListFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
