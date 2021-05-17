@@ -43,7 +43,12 @@ object Dependencies {
     object ThirdParty {
         const val threeTenAbp =
             "com.jakewharton.threetenabp:threetenabp:${Versions.ThirdParty.threeTenAbp}"
-        const val groupie = "com.github.lisawray.groupie:groupie:${Versions.ThirdParty.groupie}"
+
+        object Groupie {
+            const val core = "com.github.lisawray.groupie:groupie:${Versions.ThirdParty.groupie}"
+            const val databinding =
+                "com.github.lisawray.groupie:groupie-databinding:${Versions.ThirdParty.groupie}"
+        }
     }
 
     object Test {
