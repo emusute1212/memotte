@@ -2,7 +2,6 @@
 buildscript {
     repositories {
         google()
-        jcenter()
         mavenCentral()
         maven { url = java.net.URI.create("https://jitpack.io") }
     }
@@ -19,8 +18,8 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
         mavenCentral()
+        maven { url = java.net.URI.create("https://jitpack.io") }
     }
 }
 
