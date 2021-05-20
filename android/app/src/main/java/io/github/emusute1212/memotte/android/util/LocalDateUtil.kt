@@ -1,4 +1,4 @@
-package io.github.emusute1212.memotte.android.util.bindings
+package io.github.emusute1212.memotte.android.util
 
 import org.threeten.bp.DayOfWeek
 import org.threeten.bp.LocalDate
