@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Memotte</string>
+    <string name="done">完了</string>
+    <string name="memo_title">メモ</string>
 </resources>

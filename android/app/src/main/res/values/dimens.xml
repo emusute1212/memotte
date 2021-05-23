@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edit_bar_width">50dp</dimen>
+    <dimen name="edit_bar_height">10dp</dimen>
+</resources>
