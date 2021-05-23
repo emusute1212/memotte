@@ -7,7 +7,7 @@ import org.threeten.bp.ZonedDateTime
 
 @Entity(tableName = "memos")
 data class MemoLocalDbEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     @ColumnInfo(name = "content")
     val content: String,
