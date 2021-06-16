@@ -10,6 +10,18 @@
             motion:maxAcceleration="100"
             motion:touchAnchorId="@+id/edit_fragment"
             motion:touchAnchorSide="bottom" />
+        <KeyFrameSet>
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="0"
+                motion:motionTarget="@id/touch_block_view" />
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="100"
+                motion:motionTarget="@id/touch_block_view" />
+
+        </KeyFrameSet>
     </Transition>
 
     <ConstraintSet android:id="@+id/edit_open_start">
@@ -20,6 +32,22 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="@+id/negative_margin" />
+        <Constraint
+            android:id="@+id/touch_block_view"
+            motion:layout_constraintBottom_toBottomOf="@+id/edit_fragment_top_negative_margin"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="focusable"
+                motion:customBoolean="false" />
+            <CustomAttribute
+                motion:attributeName="clickable"
+                motion:customBoolean="false" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/space"
+            motion:layout_constraintEnd_toEndOf="@+id/negative_margin" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/edit_open_end">
@@ -30,5 +58,18 @@
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/touch_block_view"
+            motion:layout_constraintBottom_toBottomOf="@+id/edit_fragment_top_negative_margin"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="focusable"
+                motion:customBoolean="true" />
+            <CustomAttribute
+                motion:attributeName="clickable"
+                motion:customBoolean="true" />
+        </Constraint>
     </ConstraintSet>
 </MotionScene>

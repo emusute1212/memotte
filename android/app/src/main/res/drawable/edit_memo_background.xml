@@ -3,7 +3,9 @@
     android:color="?android:colorControlHighlight">
     <item>
         <shape android:shape="rectangle">
-            <corners android:topLeftRadius="20dp" android:topRightRadius="20dp" />
+            <corners
+                android:topLeftRadius="@dimen/edit_fragment_radius"
+                android:topRightRadius="@dimen/edit_fragment_radius" />
             <solid android:color="#FFFFFF" />
         </shape>
     </item>
