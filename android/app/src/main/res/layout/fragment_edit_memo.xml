@@ -69,7 +69,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:importantForAutofill="no"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:text="@={viewModel.content}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
