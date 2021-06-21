@@ -82,7 +82,6 @@
         android:id="@+id/edit_fragment"
         android:layout_width="0dp"
         android:layout_height="@dimen/edit_fragment_view_height"
-        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/negative_margin" />

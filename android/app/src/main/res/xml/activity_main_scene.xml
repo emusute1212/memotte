@@ -54,10 +54,13 @@
         <Constraint
             android:id="@+id/edit_fragment"
             android:layout_width="0dp"
-            android:layout_height="@dimen/edit_fragment_view_height"
+            android:layout_height="0dp"
+            motion:layout_constraintHeight_max="@dimen/edit_fragment_view_height"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/touch_block_view"
+            motion:layout_constraintVertical_bias="1.0" />
         <Constraint
             android:id="@+id/touch_block_view"
             motion:layout_constraintBottom_toBottomOf="@+id/edit_fragment_top_negative_margin"
