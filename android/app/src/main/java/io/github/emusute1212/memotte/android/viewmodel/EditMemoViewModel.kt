@@ -16,13 +16,12 @@ class EditMemoViewModel @Inject constructor(
     val content = MutableLiveData("")
 
     fun submitMemo() {
-        content.value?.also {
-            viewModelScope.launch {
-                if (id == INITIALIZE_ID) {
-                    editMemoUseCase.addMemo(it)
-                } else {
-                    editMemoUseCase.editMemo(id, it)
-                }
+        val nonNullContent = content.value ?: return
+        viewModelScope.launch {
+            if (id == INITIALIZE_ID) {
+                editMemoUseCase.addMemo(nonNullContent)
+            } else {
+                editMemoUseCase.editMemo(id, nonNullContent)
             }
         }
     }
