@@ -12,7 +12,7 @@ class MemoListUseCase @Inject constructor(
 ) {
     fun getMemos(): Flow<Map<LocalDate, List<MemoEntity>>> {
         return memoRepository.loadMemos().map { memos ->
-            memos.sortedBy {
+            memos.sortedByDescending {
                 it.createOn
             }.groupBy(
                 {
