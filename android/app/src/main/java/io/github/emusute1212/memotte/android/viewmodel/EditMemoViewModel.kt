@@ -23,6 +23,7 @@ class EditMemoViewModel @Inject constructor(
             } else {
                 editMemoUseCase.editMemo(id, nonNullContent)
             }
+            id = INITIALIZE_ID
         }
     }
 
