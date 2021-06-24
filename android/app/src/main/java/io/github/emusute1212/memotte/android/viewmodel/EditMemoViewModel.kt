@@ -4,8 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.emusute1212.memotte.android.data.domain.MemoEntity
 import io.github.emusute1212.memotte.android.usecases.EditMemoUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,19 +17,27 @@ import javax.inject.Inject
 class EditMemoViewModel @Inject constructor(
     private val editMemoUseCase: EditMemoUseCase
 ) : ViewModel() {
-    private var id = INITIALIZE_ID
+    private var id = MutableStateFlow(INITIALIZE_ID)
     val content = MutableLiveData("")
     private val _message = MutableSharedFlow<Messenger>()
     val message: SharedFlow<Messenger>
         get() = _message
 
+    fun openMemo(memoEntity: MemoEntity) {
+        viewModelScope.launch(Dispatchers.Main) {
+            id.value = memoEntity.id
+            content.value = memoEntity.content
+            _message.emit(Messenger.OpenMemo)
+        }
+    }
+
     fun submitMemo() {
         val nonNullContent = content.value ?: return
         viewModelScope.launch {
-            if (id == INITIALIZE_ID) {
+            if (id.value == INITIALIZE_ID) {
                 editMemoUseCase.addMemo(nonNullContent)
             } else {
-                editMemoUseCase.editMemo(id, nonNullContent)
+                editMemoUseCase.editMemo(id.value, nonNullContent)
             }
             reset()
             _message.emit(Messenger.SubmitMemo)
@@ -35,18 +46,19 @@ class EditMemoViewModel @Inject constructor(
 
     fun deleteMemo() {
         viewModelScope.launch {
-            editMemoUseCase.deleteMemo(id)
+            editMemoUseCase.deleteMemo(id.value)
             reset()
             _message.emit(Messenger.DeleteMemo)
         }
     }
 
     private fun reset() {
-        id = INITIALIZE_ID
+        id.value = INITIALIZE_ID
         content.value = ""
     }
 
     sealed interface Messenger {
+        object OpenMemo : Messenger
         object SubmitMemo : Messenger
         object DeleteMemo : Messenger
     }
