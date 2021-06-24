@@ -86,6 +86,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:background="@null"
+            android:onClick="@{() -> viewModel.deleteMemo()}"
             android:src="@drawable/ic_delete"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
