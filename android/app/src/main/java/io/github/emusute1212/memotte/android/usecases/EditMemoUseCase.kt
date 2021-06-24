@@ -17,4 +17,8 @@ class EditMemoUseCase @Inject constructor(
         val entity = MemoEntity(id, content, ZonedDateTime.now())
         memoRepository.addMemo(entity)
     }
+
+    suspend fun deleteMemo(id: Int) {
+        memoRepository.deleteMemo(id)
+    }
 }

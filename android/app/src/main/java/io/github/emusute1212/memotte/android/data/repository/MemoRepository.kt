@@ -34,7 +34,7 @@ class MemoRepository @Inject constructor(
     }
 
     @WorkerThread
-    suspend fun deleteMemo(memoEntity: MemoEntity) {
-        database.userDao().delete(memoEntity.toMemoLocalDbEntity())
+    suspend fun deleteMemo(id: Int) {
+        database.userDao().delete(id)
     }
 }

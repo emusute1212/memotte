@@ -1,6 +1,9 @@
 package io.github.emusute1212.memotte.android.data.databases.dao
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Update
 import io.github.emusute1212.memotte.android.data.domain.MemoLocalDbEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -15,6 +18,6 @@ interface MemoDao {
     @Update
     suspend fun update(memo: MemoLocalDbEntity)
 
-    @Delete
-    suspend fun delete(memo: MemoLocalDbEntity)
+    @Query("DELETE FROM memos WHERE id = :id")
+    suspend fun delete(id: Int)
 }
