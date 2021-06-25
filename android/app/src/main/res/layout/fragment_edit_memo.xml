@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="io.github.emusute1212.memotte.android.viewmodel.EditMemoViewModel" />
@@ -34,6 +36,7 @@
             android:background="@null"
             android:onClick="@{() -> viewModel.submitMemo()}"
             android:text="@string/done"
+            android:visibility="@{viewModel.content.length() == 0 ? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bar" />
 
@@ -88,7 +91,7 @@
             android:background="@null"
             android:onClick="@{() -> viewModel.deleteMemo()}"
             android:src="@drawable/ic_delete"
-            android:visibility="visible"
+            android:visibility="@{viewModel.isEditing ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="ContentDescription" />

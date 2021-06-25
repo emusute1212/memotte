@@ -1,8 +1,6 @@
 package io.github.emusute1212.memotte.android.viewmodel
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.emusute1212.memotte.android.data.domain.MemoEntity
 import io.github.emusute1212.memotte.android.usecases.EditMemoUseCase
@@ -22,6 +20,10 @@ class EditMemoViewModel @Inject constructor(
     private val _message = MutableSharedFlow<Messenger>()
     val message: SharedFlow<Messenger>
         get() = _message
+    val isEditing: LiveData<Boolean>
+        get() = id.asLiveData(Dispatchers.Default).map {
+            it != INITIALIZE_ID
+        }
 
     fun openMemo(memoEntity: MemoEntity) {
         viewModelScope.launch(Dispatchers.Main) {
@@ -34,7 +36,7 @@ class EditMemoViewModel @Inject constructor(
     fun submitMemo() {
         val nonNullContent = content.value ?: return
         viewModelScope.launch {
-            if (id.value == INITIALIZE_ID) {
+            if (isEditing.value != false) {
                 editMemoUseCase.addMemo(nonNullContent)
             } else {
                 editMemoUseCase.editMemo(id.value, nonNullContent)
