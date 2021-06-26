@@ -17,7 +17,7 @@
             android:id="@+id/memo_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:bindMemos="@{viewModel.memos}"
+            app:bindMemos="@{viewModel.searchText.length() == 0 ? viewModel.memos : viewModel.filteredMemos}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -23,4 +23,19 @@ class MemoListUseCase @Inject constructor(
             )
         }
     }
+
+    fun searchMemoByText(
+        memos: Map<LocalDate, List<MemoEntity>>,
+        searchText: String
+    ): Map<LocalDate, List<MemoEntity>> {
+        return memos.mapNotNull { memo ->
+            memo.value.filter {
+                it.content.contains(searchText)
+            }.takeIf {
+                it.isNotEmpty()
+            }?.let {
+                memo.key to it
+            }
+        }.toMap()
+    }
 }
