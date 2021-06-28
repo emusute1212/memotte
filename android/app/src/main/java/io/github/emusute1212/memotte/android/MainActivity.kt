@@ -7,6 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.github.emusute1212.memotte.android.databinding.ActivityMainBinding
 import io.github.emusute1212.memotte.android.view.edit.EditMemoFragment
 import io.github.emusute1212.memotte.android.view.list.MemoListFragment
+import io.github.emusute1212.memotte.android.view.settings.AboutAppActivity
 
 
 @AndroidEntryPoint
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.about_app -> {
-                    TODO("about app")
+                    AboutAppActivity.startActivity(this@MainActivity)
                 }
                 R.id.license -> {
                     TODO("license")

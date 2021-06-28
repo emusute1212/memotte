@@ -6,4 +6,7 @@
     <!-- 設定メニュー -->
     <string name="about_app_title">このアプリについて</string>
     <string name="license_title">ライセンス</string>
+    <string name="version_label">バージョン：</string>
+    <string name="author">Yosuke Miyanishi</string>
+    <string name="author_label">作成者：</string>
 </resources>
