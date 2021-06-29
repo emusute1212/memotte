@@ -11,6 +11,13 @@ object Dependencies {
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.kotlin}"
     }
 
+    object Google {
+        const val ossLicensesPlugin =
+            "com.google.android.gms:oss-licenses-plugin:${Versions.Google.ossLicensesPlugin}"
+        const val ossLicenses =
+            "com.google.android.gms:play-services-oss-licenses:${Versions.Google.ossLicenses}"
+    }
+
     object Androidx {
         const val coreKtx = "androidx.core:core-ktx:${Versions.Androidx.coreKtx}"
         const val appCompat = "androidx.appcompat:appcompat:${Versions.Androidx.appCompat}"

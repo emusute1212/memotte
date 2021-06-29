@@ -9,6 +9,7 @@ buildscript {
         classpath(Dependencies.Gradle.gradlePlugin)
         classpath(Dependencies.Gradle.kotlinGradlePlugin)
         classpath(Dependencies.Dagger.classPath)
+        classpath(Dependencies.Google.ossLicensesPlugin)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

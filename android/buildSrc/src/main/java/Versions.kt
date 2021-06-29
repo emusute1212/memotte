@@ -8,6 +8,11 @@ object Versions {
         const val gradlePlugin = "4.1.2"
     }
 
+    object Google {
+        const val ossLicensesPlugin = "0.10.4"
+        const val ossLicenses = "17.0.0"
+    }
+
     object Memotte {
         const val compileSdk = 29
         const val targetSdk = 29
