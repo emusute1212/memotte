@@ -21,6 +21,7 @@
         </activity>
         <activity
             android:name=".view.settings.AboutAppActivity"
+            android:label="@string/about_app_title"
             android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
