@@ -53,5 +53,8 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
             return@setNavigationItemSelectedListener true
         }
+        appMain.toolbar.menuButton.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
     }
 }
