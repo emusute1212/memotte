@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/root_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutDescription="@xml/activity_main_scene"
@@ -44,13 +45,13 @@
                     <include
                         android:id="@+id/toolbar"
                         layout="@layout/header"
-                        app:viewModel="@{viewModel}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
-                        app:layout_collapseMode="pin" />
+                        app:layout_collapseMode="pin"
+                        app:viewModel="@{viewModel}" />
 
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
             </com.google.android.material.appbar.AppBarLayout>

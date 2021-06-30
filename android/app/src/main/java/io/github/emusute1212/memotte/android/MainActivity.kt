@@ -1,13 +1,17 @@
 package io.github.emusute1212.memotte.android
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.view.GravityCompat
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.emusute1212.memotte.android.databinding.ActivityMainBinding
+import io.github.emusute1212.memotte.android.util.SimpleTransitionListener
 import io.github.emusute1212.memotte.android.view.edit.EditMemoFragment
 import io.github.emusute1212.memotte.android.view.list.MemoListFragment
 import io.github.emusute1212.memotte.android.view.settings.AboutAppActivity
@@ -56,5 +60,20 @@ class MainActivity : AppCompatActivity() {
         appMain.toolbar.menuButton.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
+        appMain.toolbar.searchImageLabel.setOnClickListener {
+            closeIme()
+        }
+        // アニメーションが始まるときにIMEを閉じるようにする
+        appMain.rootContent.setTransitionListener(object : SimpleTransitionListener {
+            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
+                closeIme()
+            }
+        })
+    }
+
+    private fun closeIme() {
+        (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(binding.root.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+        binding.root.requestFocus()
     }
 }
