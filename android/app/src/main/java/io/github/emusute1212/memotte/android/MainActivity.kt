@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.emusute1212.memotte.android.databinding.ActivityMainBinding
@@ -15,7 +16,10 @@ import io.github.emusute1212.memotte.android.util.SimpleTransitionListener
 import io.github.emusute1212.memotte.android.view.edit.EditMemoFragment
 import io.github.emusute1212.memotte.android.view.list.MemoListFragment
 import io.github.emusute1212.memotte.android.view.settings.AboutAppActivity
+import io.github.emusute1212.memotte.android.viewmodel.EditMemoViewModel
 import io.github.emusute1212.memotte.android.viewmodel.MemoListViewModel
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 
 @AndroidEntryPoint
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val memoListViewModel: MemoListViewModel by viewModels()
+    private val editMemoViewModel: EditMemoViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 setContentView(this.root)
                 init()
             }
+        observeMessage()
     }
 
     private fun ActivityMainBinding.init() {
@@ -57,18 +63,42 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
             return@setNavigationItemSelectedListener true
         }
+
         appMain.toolbar.menuButton.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
+
         appMain.toolbar.searchImageLabel.setOnClickListener {
             closeIme()
         }
+
         // アニメーションが始まるときにIMEを閉じるようにする
         appMain.rootContent.setTransitionListener(object : SimpleTransitionListener {
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
                 closeIme()
             }
         })
+    }
+
+    private fun observeMessage() {
+        editMemoViewModel.message
+            .onEach { onMessage(it) }
+            .launchIn(lifecycleScope)
+    }
+
+    private fun onMessage(
+        message: EditMemoViewModel.Messenger
+    ) = when (message) {
+        EditMemoViewModel.Messenger.DeleteMemo -> {
+            closeIme()
+            binding.appMain.rootContent.transitionToStart()
+        }
+        EditMemoViewModel.Messenger.OpenMemo -> {
+            binding.appMain.rootContent.transitionToEnd()
+        }
+        EditMemoViewModel.Messenger.SubmitMemo -> {
+            binding.appMain.rootContent.transitionToStart()
+        }
     }
 
     private fun closeIme() {
