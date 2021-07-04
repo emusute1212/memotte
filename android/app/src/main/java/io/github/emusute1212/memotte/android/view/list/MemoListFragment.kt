@@ -8,14 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.emusute1212.memotte.android.databinding.FragmentMemoListBinding
+import io.github.emusute1212.memotte.android.viewmodel.EditMemoViewModel
 import io.github.emusute1212.memotte.android.viewmodel.MemoListViewModel
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MemoListFragment : Fragment() {
     private lateinit var binding: FragmentMemoListBinding
 
     private val memoListViewModel: MemoListViewModel by activityViewModels()
+    private val editMemoViewModel: EditMemoViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,8 +24,9 @@ class MemoListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMemoListBinding.inflate(inflater, container, false).also {
-            it.viewModel = memoListViewModel
-            it.lifecycleOwner = this
+            it.memoListViewModel = memoListViewModel
+            it.editMemoViewModel = editMemoViewModel
+            it.lifecycleOwner = viewLifecycleOwner
         }
         return binding.root
     }

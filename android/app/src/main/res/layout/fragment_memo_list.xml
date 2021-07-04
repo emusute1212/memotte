@@ -5,8 +5,12 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="memoListViewModel"
             type="io.github.emusute1212.memotte.android.viewmodel.MemoListViewModel" />
+
+        <variable
+            name="editMemoViewModel"
+            type="io.github.emusute1212.memotte.android.viewmodel.EditMemoViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,12 +21,13 @@
             android:id="@+id/memo_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:bindMemos="@{viewModel.searchText.length() == 0 ? viewModel.memos : viewModel.filteredMemos}"
+            app:bindMemos="@{memoListViewModel.searchText.length() == 0 ? memoListViewModel.memos : memoListViewModel.filteredMemos}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:onMemoClick="@{editMemoViewModel.openMemo}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

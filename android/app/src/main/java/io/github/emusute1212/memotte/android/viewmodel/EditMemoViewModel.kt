@@ -20,10 +20,11 @@ class EditMemoViewModel @Inject constructor(
     private val _message = MutableSharedFlow<Messenger>()
     val message: SharedFlow<Messenger>
         get() = _message
-    val isEditing: LiveData<Boolean>
-        get() = id.asLiveData(Dispatchers.Default).map {
+    val isEditing: LiveData<Boolean> by lazy {
+        id.asLiveData(Dispatchers.Default).map {
             it != INITIALIZE_ID
         }
+    }
 
     fun openMemo(memoEntity: MemoEntity) {
         viewModelScope.launch(Dispatchers.Main) {

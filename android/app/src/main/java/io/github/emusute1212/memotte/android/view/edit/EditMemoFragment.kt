@@ -21,7 +21,7 @@ class EditMemoFragment : Fragment() {
     ): View {
         binding = FragmentEditMemoBinding.inflate(inflater, container, false).also {
             it.viewModel = editMemoViewModel
-            it.lifecycleOwner = this
+            it.lifecycleOwner = viewLifecycleOwner
         }
         return binding.root
     }
