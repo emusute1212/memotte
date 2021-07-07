@@ -38,9 +38,9 @@ class EditMemoViewModel @Inject constructor(
         val nonNullContent = content.value ?: return
         viewModelScope.launch {
             if (isEditing.value != false) {
-                editMemoUseCase.addMemo(nonNullContent)
-            } else {
                 editMemoUseCase.editMemo(id.value, nonNullContent)
+            } else {
+                editMemoUseCase.addMemo(nonNullContent)
             }
             reset()
             _message.emit(Messenger.SubmitMemo)
