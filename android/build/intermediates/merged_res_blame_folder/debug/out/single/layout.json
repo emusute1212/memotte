@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/drawer_header.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/drawer_header.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_edit_memo.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/fragment_edit_memo.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/memo_item_view.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/memo_item_view.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_about_app.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/activity_about_app.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/memo_group_item_view.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/memo_group_item_view.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/app_main.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/app_main.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_memo_list.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/fragment_memo_list.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/header.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/header.xml"
+    },
+    {
+        "merged": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/miyanishiyousuke/AndroidWorkspace/memotte/android/src/main/res/layout/activity_main.xml"
+    }
+]
