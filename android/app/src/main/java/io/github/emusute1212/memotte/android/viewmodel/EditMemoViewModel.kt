@@ -9,6 +9,8 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,6 +27,7 @@ class EditMemoViewModel @Inject constructor(
             it != INITIALIZE_ID
         }
     }
+    private val submitMemoLock = Mutex()
 
     fun openMemo(memoEntity: MemoEntity) {
         viewModelScope.launch(Dispatchers.Main) {
@@ -35,14 +38,7 @@ class EditMemoViewModel @Inject constructor(
     }
 
     fun submitMemo() {
-        val nonNullContent = content.value ?: return
         viewModelScope.launch {
-            if (isEditing.value != false) {
-                editMemoUseCase.editMemo(id.value, nonNullContent)
-            } else {
-                editMemoUseCase.addMemo(nonNullContent)
-            }
-            reset()
             _message.emit(Messenger.SubmitMemo)
         }
     }
@@ -53,6 +49,18 @@ class EditMemoViewModel @Inject constructor(
             reset()
             _message.emit(Messenger.DeleteMemo)
         }
+    }
+
+    suspend fun onCloseEdit() = submitMemoLock.withLock(Dispatchers.IO) {
+        val nonNullContent = content.value?.takeIf {
+            it.isNotEmpty()
+        } ?: return
+        if (isEditing.value != false) {
+            editMemoUseCase.editMemo(id.value, nonNullContent)
+        } else {
+            editMemoUseCase.addMemo(nonNullContent)
+        }
+        reset()
     }
 
     private fun reset() {

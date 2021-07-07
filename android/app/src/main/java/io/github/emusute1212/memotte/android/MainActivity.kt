@@ -20,6 +20,7 @@ import io.github.emusute1212.memotte.android.viewmodel.EditMemoViewModel
 import io.github.emusute1212.memotte.android.viewmodel.MemoListViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -74,8 +75,19 @@ class MainActivity : AppCompatActivity() {
 
         // アニメーションが始まるときにIMEを閉じるようにする
         appMain.rootContent.setTransitionListener(object : SimpleTransitionListener {
-            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
                 closeIme()
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                if (currentId == R.id.edit_open_end) return
+                lifecycleScope.launch {
+                    editMemoViewModel.onCloseEdit()
+                }
             }
         })
     }
