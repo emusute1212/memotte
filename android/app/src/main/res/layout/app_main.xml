@@ -14,6 +14,7 @@
         android:id="@+id/root_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorPrimaryVariant"
         app:layoutDescription="@xml/activity_main_scene"
         tools:context=".MainActivity">
 
