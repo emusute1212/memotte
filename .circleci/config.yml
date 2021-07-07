@@ -17,12 +17,12 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
-          working_directory: android
+          working_directory: memotte
       # Then lint and run your tests!
       - run:
           name: Run Tests
           command: ./gradlew lint test
-          working_directory: android
+          working_directory: memotte
 
 
 workflows:
