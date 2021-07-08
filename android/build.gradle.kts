@@ -10,7 +10,7 @@ android {
     compileSdkVersion(Versions.Memotte.compileSdk)
 
     defaultConfig {
-        applicationId = "io.github.emusute1212.memotte.android"
+        applicationId = "io.github.emusute1212.memotte"
         minSdkVersion(Versions.Memotte.minSdk)
         targetSdkVersion(Versions.Memotte.targetSdk)
         versionCode = Versions.Memotte.code

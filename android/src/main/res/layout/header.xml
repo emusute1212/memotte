@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="io.github.emusute1212.memotte.android.viewmodel.MemoListViewModel" />
+            type="io.github.emusute1212.memotte.viewmodel.MemoListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

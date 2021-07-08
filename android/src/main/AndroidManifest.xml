@@ -3,14 +3,14 @@
     package="io.github.emusute1212.memotte.android">
 
     <application
-        android:name=".MemotteApplication"
+        android:name="io.github.emusute1212.memotte.MemotteApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name=".MainActivity"
+            android:name="io.github.emusute1212.memotte.MainActivity"
             android:theme="@style/Theme.Android"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -20,19 +20,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.settings.AboutAppActivity"
+            android:name="io.github.emusute1212.memotte.view.settings.AboutAppActivity"
             android:label="@string/about_app_title"
             android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="io.github.emusute1212.memotte.MainActivity" />
         </activity>
         <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="io.github.emusute1212.memotte.MainActivity" />
         </activity>
     </application>
 

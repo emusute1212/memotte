@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="io.github.emusute1212.memotte.android.viewmodel.MemoListViewModel" />
+            type="io.github.emusute1212.memotte.viewmodel.MemoListViewModel" />
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout
@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:background="?attr/colorPrimaryVariant"
         app:layoutDescription="@xml/activity_main_scene"
-        tools:context=".MainActivity">
+        tools:context="io.github.emusute1212.memotte.MainActivity">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/content"
