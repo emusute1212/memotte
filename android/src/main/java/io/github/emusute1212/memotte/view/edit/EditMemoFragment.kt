@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import io.github.emusute1212.memotte.android.databinding.FragmentEditMemoBinding
+import io.github.emusute1212.memotte.databinding.FragmentEditMemoBinding
 import io.github.emusute1212.memotte.viewmodel.EditMemoViewModel
 
 class EditMemoFragment : Fragment() {

@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.util.Linkify
 import androidx.appcompat.app.AppCompatActivity
-import io.github.emusute1212.memotte.android.databinding.ActivityAboutAppBinding
+import io.github.emusute1212.memotte.databinding.ActivityAboutAppBinding
 
 class AboutAppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,2 +1,2 @@
-include ':android'
+include(":android")
 rootProject.name = "memotte"

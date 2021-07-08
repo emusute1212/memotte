@@ -11,8 +11,7 @@ import androidx.core.view.GravityCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.emusute1212.memotte.android.R
-import io.github.emusute1212.memotte.android.databinding.ActivityMainBinding
+import io.github.emusute1212.memotte.databinding.ActivityMainBinding
 import io.github.emusute1212.memotte.util.SimpleTransitionListener
 import io.github.emusute1212.memotte.view.edit.EditMemoFragment
 import io.github.emusute1212.memotte.view.list.MemoListFragment

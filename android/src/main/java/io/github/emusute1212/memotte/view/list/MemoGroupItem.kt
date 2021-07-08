@@ -1,8 +1,8 @@
 package io.github.emusute1212.memotte.view.list
 
 import com.xwray.groupie.databinding.BindableItem
-import io.github.emusute1212.memotte.android.R
-import io.github.emusute1212.memotte.android.databinding.MemoGroupItemViewBinding
+import io.github.emusute1212.memotte.R
+import io.github.emusute1212.memotte.databinding.MemoGroupItemViewBinding
 import org.threeten.bp.LocalDate
 
 class MemoGroupItem(

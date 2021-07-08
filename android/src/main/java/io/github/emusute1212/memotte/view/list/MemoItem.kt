@@ -1,9 +1,9 @@
 package io.github.emusute1212.memotte.view.list
 
 import com.xwray.groupie.databinding.BindableItem
-import io.github.emusute1212.memotte.android.R
+import io.github.emusute1212.memotte.R
 import io.github.emusute1212.memotte.data.domain.MemoEntity
-import io.github.emusute1212.memotte.android.databinding.MemoItemViewBinding
+import io.github.emusute1212.memotte.databinding.MemoItemViewBinding
 
 class MemoItem(
     private val memoEntity: MemoEntity,
