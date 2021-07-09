@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run:
           name: Make google-service.json
-          command: echo '${{ secrets.GOOGLE_SERVICE_BASE64 }}' | base64 -d > android/google-services.json
+          command: echo '${{ GOOGLE_SERVICE_BASE64 }}' | base64 -d > android/google-services.json
       # The next step will download the dependencies.
       - run:
           name: Download Dependencies
