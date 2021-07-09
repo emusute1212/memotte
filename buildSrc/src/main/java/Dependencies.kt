@@ -16,6 +16,14 @@ object Dependencies {
             "com.google.android.gms:oss-licenses-plugin:${Versions.Google.ossLicensesPlugin}"
         const val ossLicenses =
             "com.google.android.gms:play-services-oss-licenses:${Versions.Google.ossLicenses}"
+        const val googleService = "com.google.gms:google-services:${Versions.Google.googleService}"
+
+        object Firebase {
+            const val gradle =
+                "com.google.firebase:firebase-crashlytics-gradle:${Versions.Google.Firebase.gradle}"
+            const val bom = "com.google.firebase:firebase-bom:${Versions.Google.Firebase.bom}"
+            const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
+        }
     }
 
     object Androidx {

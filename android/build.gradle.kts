@@ -4,6 +4,8 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("com.google.android.gms.oss-licenses-plugin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -61,6 +63,8 @@ dependencies {
     implementation(Dependencies.ThirdParty.Groupie.core)
     implementation(Dependencies.ThirdParty.Groupie.databinding)
     implementation(Dependencies.Google.ossLicenses)
+    implementation(platform(Dependencies.Google.Firebase.bom))
+    implementation(Dependencies.Google.Firebase.crashlytics)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)
