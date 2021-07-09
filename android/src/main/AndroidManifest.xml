@@ -22,18 +22,21 @@
         <activity
             android:name="io.github.emusute1212.memotte.view.settings.AboutAppActivity"
             android:label="@string/about_app_title"
-            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            android:theme="@style/Theme.Setting">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.github.emusute1212.memotte.MainActivity" />
         </activity>
         <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            android:theme="@style/Theme.Setting">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.github.emusute1212.memotte.MainActivity" />
         </activity>
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
+            android:theme="@style/Theme.Setting" />
     </application>
 
 </manifest>
