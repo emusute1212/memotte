@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.emusute1212.memotte.databinding.FragmentMemoListBinding
+import io.github.emusute1212.memotte.util.autoCleared
 import io.github.emusute1212.memotte.viewmodel.EditMemoViewModel
 import io.github.emusute1212.memotte.viewmodel.MemoListViewModel
 
 @AndroidEntryPoint
 class MemoListFragment : Fragment() {
-    private lateinit var binding: FragmentMemoListBinding
+    private var binding: FragmentMemoListBinding by autoCleared()
 
     private val memoListViewModel: MemoListViewModel by activityViewModels()
     private val editMemoViewModel: EditMemoViewModel by activityViewModels()

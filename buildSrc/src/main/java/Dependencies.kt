@@ -38,6 +38,8 @@ object Dependencies {
         object Lifecycle {
             const val ktx =
                 "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.Androidx.lifecycle}"
+            const val commonJava8 =
+                "androidx.lifecycle:lifecycle-common-java8:${Versions.Androidx.lifecycle}"
         }
     }
 

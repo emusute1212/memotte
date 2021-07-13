@@ -58,6 +58,7 @@ dependencies {
     implementation(Dependencies.Androidx.constraintLayout)
     implementation(Dependencies.Androidx.coordinatorLayout)
     implementation(Dependencies.Androidx.Lifecycle.ktx)
+    implementation(Dependencies.Androidx.Lifecycle.commonJava8)
     implementation(Dependencies.Dagger.hiltCore)
     kapt(Dependencies.Dagger.annotationProcessor)
     implementation(Dependencies.JetPack.Room.runtime)
