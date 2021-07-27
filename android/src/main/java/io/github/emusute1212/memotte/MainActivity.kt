@@ -65,12 +65,8 @@ class MainActivity : AppCompatActivity() {
             return@setNavigationItemSelectedListener true
         }
 
-        appMain.toolbar.menuButton.setOnClickListener {
+        appMain.menuButton.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
-        }
-
-        appMain.toolbar.searchImageLabel.setOnClickListener {
-            closeIme()
         }
 
         // アニメーションが始まるときにIMEを閉じるようにする

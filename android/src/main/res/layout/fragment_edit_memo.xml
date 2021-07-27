@@ -35,54 +35,42 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@null"
+            android:fontFamily="@font/noto_sans_cjk_jp_regular"
             android:foreground="?android:selectableItemBackground"
             android:onClick="@{() -> viewModel.submitMemo()}"
             android:text="@string/done"
+            android:textSize="14sp"
             android:visibility="@{viewModel.content.length() == 0 ? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bar" />
 
-        <ImageView
-            android:id="@+id/title_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/ic_edit"
-            app:layout_constraintEnd_toStartOf="@+id/title_label"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/done_button"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/title_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/memo_title"
-            app:layout_constraintBottom_toBottomOf="@+id/title_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/title_icon"
-            app:layout_constraintTop_toTopOf="@+id/title_icon" />
-
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:gravity="start|top"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            android:text="@={viewModel.content}"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/delete_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_icon"
-            app:layout_goneMarginBottom="16dp"
-            tools:ignore="LabelFor" />
+            app:layout_constraintTop_toBottomOf="@+id/done_button"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_goneMarginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_cjk_jp_regular"
+                android:gravity="start|top"
+                android:hint="@string/memo_title"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:text="@={viewModel.content}"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
             android:id="@+id/delete_button"
