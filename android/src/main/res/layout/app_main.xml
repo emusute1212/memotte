@@ -14,7 +14,7 @@
         android:id="@+id/root_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimaryVariant"
+        android:background="@color/home_background"
         app:layoutDescription="@xml/activity_main_scene"
         tools:context="io.github.emusute1212.memotte.MainActivity">
 
@@ -51,7 +51,7 @@
                         android:id="@+id/toolbar_background"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/toolbar_max_height"
-                        android:background="?attr/colorPrimaryVariant"
+                        android:background="@color/home_background"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:elevation="10dp"
                         android:src="@drawable/ic_setting"
-                        android:tint="@color/gray"
+                        android:tint="@color/home_content"
                         app:layout_constraintEnd_toEndOf="@+id/toolbar_background"
                         app:layout_constraintTop_toTopOf="@+id/toolbar_background"
                         tools:ignore="ContentDescription" />
@@ -81,6 +81,7 @@
                         android:elevation="10dp"
                         android:fontFamily="@font/noto_sans_cjk_jp_bold"
                         android:text="@string/memo_title"
+                        android:textColor="@color/home_content"
                         android:textSize="30sp"
                         android:visibility="visible"
                         app:layout_constraintBottom_toBottomOf="@+id/toolbar_background"

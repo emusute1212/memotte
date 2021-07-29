@@ -6,7 +6,7 @@
             <corners
                 android:topLeftRadius="@dimen/edit_fragment_radius"
                 android:topRightRadius="@dimen/edit_fragment_radius" />
-            <solid android:color="#FFFFFF" />
+            <solid android:color="@color/edit_background" />
         </shape>
     </item>
 </ripple>
