@@ -15,8 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/edit_memo_background"
-        android:elevation="10dp">
+        android:background="@drawable/edit_memo_background">
 
         <View
             android:id="@+id/bar"
@@ -35,6 +34,7 @@
             android:background="@null"
             android:fontFamily="@font/noto_sans_cjk_jp_regular"
             android:foreground="?android:selectableItemBackground"
+            android:includeFontPadding="false"
             android:onClick="@{() -> viewModel.submitMemo()}"
             android:text="@string/done"
             android:textColor="@color/memo_content"
@@ -43,35 +43,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:textColorHint="@color/memo_content"
+            android:gravity="start|top"
+            android:hint="@string/edit_memo_label"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="textMultiLine"
+            android:padding="2dp"
+            android:text="@={viewModel.content}"
+            android:textColor="@color/memo_content"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/delete_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/done_button"
             app:layout_constraintVertical_bias="0.0"
-            app:layout_goneMarginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/noto_sans_cjk_jp_regular"
-                android:gravity="start|top"
-                android:hint="@string/memo_title"
-                android:importantForAutofill="no"
-                android:includeFontPadding="false"
-                android:inputType="textMultiLine"
-                android:text="@={viewModel.content}"
-                android:textColor="@color/memo_content"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_goneMarginBottom="16dp" />
 
         <ImageButton
             android:id="@+id/delete_button"

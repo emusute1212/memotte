@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="edit_bar_width">36dp</dimen>
-    <dimen name="edit_bar_height">4dp</dimen>
-    <dimen name="edit_fragment_hide_height">100dp</dimen>
+    <dimen name="edit_bar_height">6dp</dimen>
+    <dimen name="edit_fragment_hide_height">110dp</dimen>
     <dimen name="edit_fragment_view_height">428dp</dimen>
     <dimen name="edit_fragment_radius">20dp</dimen>
     <dimen name="memo_item_radius">16dp</dimen>

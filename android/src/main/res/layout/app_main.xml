@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/home_background"
+        android:focusableInTouchMode="true"
         app:layoutDescription="@xml/activity_main_scene"
         tools:context="io.github.emusute1212.memotte.MainActivity">
 
@@ -132,6 +133,8 @@
             android:id="@+id/edit_fragment"
             android:layout_width="0dp"
             android:layout_height="@dimen/edit_fragment_view_height"
+            android:background="@drawable/edit_memo_background"
+            android:elevation="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/negative_margin" />

@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Memotte</string>
-    <string name="done">完了</string>
+
+    <!-- ホーム画面 -->
     <string name="memo_title">メモ</string>
+
+    <!-- 編集画面 -->
+    <string name="done">完了</string>
+    <string name="edit_memo_label">メモする</string>
 
     <!-- 設定メニュー -->
     <string name="about_app_title">このアプリについて</string>
