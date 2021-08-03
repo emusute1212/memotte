@@ -5,7 +5,7 @@ object Versions {
     }
 
     object Gradle {
-        const val gradlePlugin = "4.1.2"
+        const val gradlePlugin = "7.0.0"
     }
 
     object Google {
@@ -20,8 +20,8 @@ object Versions {
     }
 
     object Memotte {
-        const val compileSdk = 29
-        const val targetSdk = 29
+        const val compileSdk = 30
+        const val targetSdk = 30
         const val minSdk = 23
 
         private val version = ApplicationVersion(0, 0, 0, 1)
@@ -45,7 +45,7 @@ object Versions {
     }
 
     object Dagger {
-        const val hilt = "2.35"
+        const val hilt = "2.38.1"
     }
 
     object ThirdParty {

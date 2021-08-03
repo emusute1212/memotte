@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Versions.Memotte.compileSdk)
+    compileSdk = Versions.Memotte.compileSdk
 
     defaultConfig {
         applicationId = "io.github.emusute1212.memotte"
-        minSdkVersion(Versions.Memotte.minSdk)
-        targetSdkVersion(Versions.Memotte.targetSdk)
+        minSdk = Versions.Memotte.minSdk
+        targetSdk = Versions.Memotte.targetSdk
         versionCode = Versions.Memotte.code
         versionName = Versions.Memotte.name
 
@@ -26,7 +26,6 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             isDebuggable = true
-            isUseProguard = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -37,11 +36,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility(JavaVersion.VERSION_1_8)
-        targetCompatibility(JavaVersion.VERSION_1_8)
+        sourceCompatibility(JavaVersion.VERSION_11)
+        targetCompatibility(JavaVersion.VERSION_11)
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         viewBinding = true
