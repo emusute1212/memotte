@@ -1,10 +1,11 @@
 package io.github.emusute1212.memotte.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.emusute1212.memotte.data.domain.MemoEntity
 import io.github.emusute1212.memotte.usecases.MemoListUseCase
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 import org.threeten.bp.LocalDate
 import javax.inject.Inject
 
@@ -12,27 +13,12 @@ import javax.inject.Inject
 class MemoListViewModel @Inject constructor(
     private val memoListUseCase: MemoListUseCase
 ) : ViewModel() {
-    val searchText = MutableLiveData<String>()
-    val memos: LiveData<Map<LocalDate, List<MemoEntity>>> by lazy {
-        memoListUseCase.getMemos().asLiveData(Dispatchers.IO)
-    }
-    val filteredMemos = MediatorLiveData<Map<LocalDate, List<MemoEntity>>>()
+    val searchText = MutableStateFlow("")
+    val memos: StateFlow<Map<LocalDate, List<MemoEntity>>> =
+        memoListUseCase.getMemos().stateIn(viewModelScope, SharingStarted.Lazily, emptyMap())
 
-    init {
-        filteredMemos.addSource(memos) {
-            filteredMemos.value = combineSearchMemo(memos, searchText)
-        }
-        filteredMemos.addSource(searchText) {
-            filteredMemos.value = combineSearchMemo(memos, searchText)
-        }
-    }
-
-    private fun combineSearchMemo(
-        memos: LiveData<Map<LocalDate, List<MemoEntity>>>,
-        searchText: LiveData<String>
-    ): Map<LocalDate, List<MemoEntity>> {
-        val memosValue = memos.value ?: emptyMap()
-        val searchTextValue = searchText.value ?: ""
-        return memoListUseCase.searchMemoByText(memosValue, searchTextValue)
-    }
+    val filteredMemos: StateFlow<Map<LocalDate, List<MemoEntity>>> =
+        memos.combine(searchText) { memosValue, searchTextValue ->
+            memoListUseCase.searchMemoByText(memosValue, searchTextValue)
+        }.stateIn(viewModelScope, SharingStarted.Lazily, emptyMap())
 }

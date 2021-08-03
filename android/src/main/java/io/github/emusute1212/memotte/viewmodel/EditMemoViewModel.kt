@@ -1,13 +1,12 @@
 package io.github.emusute1212.memotte.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.emusute1212.memotte.data.domain.MemoEntity
 import io.github.emusute1212.memotte.usecases.EditMemoUseCase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -18,15 +17,13 @@ class EditMemoViewModel @Inject constructor(
     private val editMemoUseCase: EditMemoUseCase
 ) : ViewModel() {
     private var id = MutableStateFlow(INITIALIZE_ID)
-    val content = MutableLiveData("")
+    val content = MutableStateFlow("")
     private val _message = MutableSharedFlow<Messenger>()
     val message: SharedFlow<Messenger>
         get() = _message
-    val isEditing: LiveData<Boolean> by lazy {
-        id.asLiveData(Dispatchers.Default).map {
-            it != INITIALIZE_ID
-        }
-    }
+    val isEditing: StateFlow<Boolean> = id.map {
+        it != INITIALIZE_ID
+    }.stateIn(viewModelScope, SharingStarted.Lazily, false)
     private val submitMemoLock = Mutex()
 
     fun openMemo(memoEntity: MemoEntity) {
@@ -52,10 +49,10 @@ class EditMemoViewModel @Inject constructor(
     }
 
     suspend fun onCloseEdit() = submitMemoLock.withLock(Dispatchers.IO) {
-        val nonNullContent = content.value?.takeIf {
+        val nonNullContent = content.value.takeIf {
             it.isNotEmpty()
         } ?: return
-        if (isEditing.value != false) {
+        if (isEditing.value) {
             editMemoUseCase.editMemo(id.value, nonNullContent)
         } else {
             editMemoUseCase.addMemo(nonNullContent)
