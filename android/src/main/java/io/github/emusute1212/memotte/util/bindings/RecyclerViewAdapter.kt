@@ -13,8 +13,8 @@ import org.threeten.bp.LocalDate
 
 @BindingAdapter(
     value = [
-        "app:onMemoClick",
-        "app:bindMemos"
+        "onMemoClick",
+        "bindMemos"
     ],
     requireAll = true
 )
