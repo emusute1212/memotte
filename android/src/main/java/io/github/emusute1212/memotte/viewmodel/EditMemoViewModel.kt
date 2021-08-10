@@ -26,7 +26,7 @@ class EditMemoViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.Lazily, false)
     private val submitMemoLock = Mutex()
 
-    fun openMemo(memoEntity: MemoEntity) {
+    fun onClickMemo(memoEntity: MemoEntity) {
         viewModelScope.launch(Dispatchers.Main) {
             id.value = memoEntity.id
             content.value = memoEntity.content
@@ -34,13 +34,13 @@ class EditMemoViewModel @Inject constructor(
         }
     }
 
-    fun submitMemo() {
+    fun onSubmitMemo() {
         viewModelScope.launch {
             _message.emit(Messenger.SubmitMemo)
         }
     }
 
-    fun deleteMemo() {
+    fun onDeleteMemo() {
         viewModelScope.launch {
             editMemoUseCase.deleteMemo(id.value)
             reset()
@@ -48,7 +48,7 @@ class EditMemoViewModel @Inject constructor(
         }
     }
 
-    suspend fun onCloseEdit() = submitMemoLock.withLock(Dispatchers.IO) {
+    suspend fun submitMemo() = submitMemoLock.withLock(Dispatchers.IO) {
         val nonNullContent = content.value.takeIf {
             it.isNotEmpty()
         } ?: return

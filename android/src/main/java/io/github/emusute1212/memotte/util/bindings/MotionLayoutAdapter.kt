@@ -5,22 +5,20 @@ import androidx.databinding.BindingAdapter
 
 @BindingAdapter(
     value = [
-        "onTransitionStarted",
-        "onTransitionChange",
-        "onTransitionCompleted",
-        "onTransitionTrigger"
+        "onTransitionStartedListener",
+        "onTransitionToStartCompletedListener",
+        "onTransitionToEndCompletedListener"
     ],
     requireAll = false
 )
 fun MotionLayout.setListener(
     onTransitionStartedListener: OnTransitionStartedListener?,
-    onTransitionChangeListener: OnTransitionChangeListener?,
-    onTransitionCompletedListener: OnTransitionCompletedListener?,
-    onTransitionTriggerListener: OnTransitionTriggerListener?
+    onTransitionToStartCompletedListener: OnTransitionToStartCompletedListener?,
+    onTransitionToEndCompletedListener: OnTransitionToEndCompletedListener?
 ) {
     setTransitionListener(object : MotionLayout.TransitionListener {
         override fun onTransitionStarted(motionLayout: MotionLayout?, startId: Int, endId: Int) {
-            onTransitionStartedListener?.onTransitionStarted(motionLayout, startId, endId)
+            onTransitionStartedListener?.onTransitionStarted()
         }
 
         override fun onTransitionChange(
@@ -29,19 +27,16 @@ fun MotionLayout.setListener(
             endId: Int,
             progress: Float
         ) {
-            onTransitionChangeListener?.onTransitionChange(
-                motionLayout,
-                startId,
-                endId,
-                progress
-            )
+            onTransitionStartedListener?.onTransitionStarted()
         }
 
         override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
-            onTransitionCompletedListener?.onTransitionCompleted(
-                motionLayout,
-                currentId
-            )
+            if (motionLayout == null) return
+            if (motionLayout.progress == 0.0F) {
+                onTransitionToStartCompletedListener?.onTransitionToStartCompleted()
+            } else if (motionLayout.progress == 1.0F) {
+                onTransitionToEndCompletedListener?.onTransitionToEndCompleted()
+            }
         }
 
         override fun onTransitionTrigger(
@@ -50,38 +45,18 @@ fun MotionLayout.setListener(
             positive: Boolean,
             progress: Float
         ) {
-            onTransitionTriggerListener?.onTransitionTrigger(
-                motionLayout,
-                triggerId,
-                positive,
-                progress
-            )
         }
     })
 }
 
 fun interface OnTransitionStartedListener {
-    fun onTransitionStarted(motionLayout: MotionLayout?, startId: Int, endId: Int)
+    fun onTransitionStarted()
 }
 
-fun interface OnTransitionChangeListener {
-    fun onTransitionChange(
-        motionLayout: MotionLayout?,
-        startId: Int,
-        endId: Int,
-        progress: Float
-    )
+fun interface OnTransitionToStartCompletedListener {
+    fun onTransitionToStartCompleted()
 }
 
-fun interface OnTransitionCompletedListener {
-    fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int)
-}
-
-fun interface OnTransitionTriggerListener {
-    fun onTransitionTrigger(
-        motionLayout: MotionLayout?,
-        triggerId: Int,
-        positive: Boolean,
-        progress: Float
-    )
+fun interface OnTransitionToEndCompletedListener {
+    fun onTransitionToEndCompleted()
 }
