@@ -48,6 +48,12 @@ class EditMemoViewModel @Inject constructor(
         }
     }
 
+    fun onClickMemoEditText(){
+        viewModelScope.launch {
+            _message.emit(Messenger.ClickEditText)
+        }
+    }
+
     suspend fun submitMemo() = submitMemoLock.withLock(Dispatchers.IO) {
         val nonNullContent = content.value.takeIf {
             it.isNotEmpty()
@@ -69,6 +75,7 @@ class EditMemoViewModel @Inject constructor(
         object OpenMemo : Messenger
         object SubmitMemo : Messenger
         object DeleteMemo : Messenger
+        object ClickEditText: Messenger
     }
 
     companion object {

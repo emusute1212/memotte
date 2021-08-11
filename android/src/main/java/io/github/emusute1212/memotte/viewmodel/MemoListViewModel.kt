@@ -26,13 +26,6 @@ class MemoListViewModel @Inject constructor(
             memoListUseCase.searchMemoByText(memosValue, searchTextValue)
         }.stateIn(viewModelScope, SharingStarted.Lazily, emptyMap())
 
-    fun onStartSwipeEdit() {
-        // 編集画面を閉じるときにメモを送信
-        viewModelScope.launch {
-            _message.emit(Messenger.StartSwipeEdit)
-        }
-    }
-
     fun onOpenMemo() {
         viewModelScope.launch {
             _message.emit(Messenger.OpenEdit)
@@ -46,7 +39,6 @@ class MemoListViewModel @Inject constructor(
     }
 
     sealed interface Messenger {
-        object StartSwipeEdit : Messenger
         object OpenEdit : Messenger
         object CloseEdit : Messenger
     }

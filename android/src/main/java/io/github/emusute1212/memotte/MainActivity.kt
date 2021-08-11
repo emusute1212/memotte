@@ -102,5 +102,8 @@ class MainActivity : AppCompatActivity() {
         EditMemoViewModel.Messenger.SubmitMemo -> {
             binding.appMain.rootContent.transitionToStart()
         }
+        EditMemoViewModel.Messenger.ClickEditText -> {
+            binding.appMain.rootContent.transitionToEnd()
+        }
     }
 }

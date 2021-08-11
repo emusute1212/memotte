@@ -51,9 +51,6 @@ class EditMemoFragment : Fragment() {
         MemoListViewModel.Messenger.OpenEdit -> {
             openIme()
         }
-        MemoListViewModel.Messenger.StartSwipeEdit -> {
-            closeIme()
-        }
     }
 
     private fun openIme() {

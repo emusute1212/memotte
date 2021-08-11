@@ -17,7 +17,6 @@
         android:background="@color/home_background"
         android:focusableInTouchMode="true"
         app:layoutDescription="@xml/activity_main_scene"
-        app:onTransitionStartedListener="@{viewModel::onStartSwipeEdit}"
         app:onTransitionToEndCompletedListener="@{viewModel::onOpenMemo}"
         app:onTransitionToStartCompletedListener="@{viewModel::onCloseMemo}"
         tools:context="io.github.emusute1212.memotte.MainActivity">
