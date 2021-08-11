@@ -6,15 +6,21 @@
     <color name="memo_content">@color/black_1</color>
     <color name="edit_background">@color/white</color>
     <color name="edit_content">@color/black_0</color>
-    <color name="bar">@color/gray</color>
+    <color name="bar">@color/gray_1</color>
     <color name="off_screen">#AA000000</color>
 
     <color name="right_blue_100">#FCFDFF</color>
     <color name="right_blue_200">#E3EDFB</color>
-    <color name="gray">#B3BAC2</color>
+    <color name="right_blue_700">#2A2B2D</color>
+    <color name="right_blue_800">#4D5765</color>
+    <color name="gray_1">#B3BAC2</color>
+    <color name="gray_2">#4F565E</color>
     <color name="black">#000000</color>
     <color name="black_0">#0F0F10</color>
     <color name="black_1">#141516</color>
     <color name="black_2">#031E43</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_0">#F0F0E0</color>
+    <color name="white_1">#EBECED</color>
+    <color name="white_2">#BCE1F7</color>
 </resources>

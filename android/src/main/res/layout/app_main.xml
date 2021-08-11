@@ -138,6 +138,7 @@
             android:layout_height="@dimen/edit_fragment_view_height"
             android:name="io.github.emusute1212.memotte.view.edit.EditMemoFragment"
             android:background="@drawable/edit_memo_background"
+            android:backgroundTint="@color/edit_background"
             android:elevation="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
