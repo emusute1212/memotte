@@ -20,9 +20,8 @@ import org.threeten.bp.LocalDate
 )
 fun RecyclerView.bindMemos(
     memoClickListener: MemoClickListener,
-    memos: Map<LocalDate, List<MemoEntity>>?
+    memos: Map<LocalDate, List<MemoEntity>>
 ) {
-    if (memos == null) return
     val sections = memos.map { memo ->
         Section().also { section ->
             section.setHeader(MemoGroupItem(memo.key))
