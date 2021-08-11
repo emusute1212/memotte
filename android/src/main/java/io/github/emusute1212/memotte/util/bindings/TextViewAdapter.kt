@@ -8,7 +8,7 @@ import io.github.emusute1212.memotte.util.toJapaneseString
 import org.threeten.bp.LocalDate
 
 @SuppressLint("SetTextI18n")
-@BindingAdapter("app:setDateText")
+@BindingAdapter("setDateText")
 fun TextView.setDateText(date: LocalDate) {
     text = "${date.toJapaneseString()} ${date.getJapaneseWeekName()}"
 }

@@ -1,10 +1,12 @@
 package io.github.emusute1212.memotte.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.emusute1212.memotte.data.domain.MemoEntity
 import io.github.emusute1212.memotte.usecases.MemoListUseCase
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import org.threeten.bp.LocalDate
 import javax.inject.Inject
 
@@ -12,27 +14,32 @@ import javax.inject.Inject
 class MemoListViewModel @Inject constructor(
     private val memoListUseCase: MemoListUseCase
 ) : ViewModel() {
-    val searchText = MutableLiveData<String>()
-    val memos: LiveData<Map<LocalDate, List<MemoEntity>>> by lazy {
-        memoListUseCase.getMemos().asLiveData(Dispatchers.IO)
-    }
-    val filteredMemos = MediatorLiveData<Map<LocalDate, List<MemoEntity>>>()
+    private val _message = MutableSharedFlow<Messenger>()
+    val message: SharedFlow<Messenger>
+        get() = _message
+    val searchText = MutableStateFlow("")
+    val memos: StateFlow<Map<LocalDate, List<MemoEntity>>> =
+        memoListUseCase.getMemos().stateIn(viewModelScope, SharingStarted.Lazily, emptyMap())
 
-    init {
-        filteredMemos.addSource(memos) {
-            filteredMemos.value = combineSearchMemo(memos, searchText)
-        }
-        filteredMemos.addSource(searchText) {
-            filteredMemos.value = combineSearchMemo(memos, searchText)
+    val filteredMemos: StateFlow<Map<LocalDate, List<MemoEntity>>> =
+        memos.combine(searchText) { memosValue, searchTextValue ->
+            memoListUseCase.searchMemoByText(memosValue, searchTextValue)
+        }.stateIn(viewModelScope, SharingStarted.Lazily, emptyMap())
+
+    fun onOpenMemo() {
+        viewModelScope.launch {
+            _message.emit(Messenger.OpenEdit)
         }
     }
 
-    private fun combineSearchMemo(
-        memos: LiveData<Map<LocalDate, List<MemoEntity>>>,
-        searchText: LiveData<String>
-    ): Map<LocalDate, List<MemoEntity>> {
-        val memosValue = memos.value ?: emptyMap()
-        val searchTextValue = searchText.value ?: ""
-        return memoListUseCase.searchMemoByText(memosValue, searchTextValue)
+    fun onCloseMemo() {
+        viewModelScope.launch {
+            _message.emit(Messenger.CloseEdit)
+        }
+    }
+
+    sealed interface Messenger {
+        object OpenEdit : Messenger
+        object CloseEdit : Messenger
     }
 }

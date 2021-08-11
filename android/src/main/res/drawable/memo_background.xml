@@ -7,7 +7,7 @@
                 android:bottomLeftRadius="@dimen/memo_item_radius"
                 android:topLeftRadius="@dimen/memo_item_radius"
                 android:topRightRadius="@dimen/memo_item_radius" />
-            <solid android:color="#FFFFFF" />
+            <solid android:color="@color/memo_background" />
         </shape>
     </item>
 </ripple>
