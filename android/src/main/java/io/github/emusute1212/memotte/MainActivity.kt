@@ -28,13 +28,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val memoListFragment = MemoListFragment()
-        val editMemoFragment = EditMemoFragment()
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.memo_list_fragment, memoListFragment)
-            .add(R.id.edit_fragment, editMemoFragment)
-            .commit()
         binding = ActivityMainBinding.inflate(layoutInflater)
             .apply {
                 this.viewModel = memoListViewModel

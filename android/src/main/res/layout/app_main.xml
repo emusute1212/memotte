@@ -96,6 +96,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/memo_list_fragment"
+                android:name="io.github.emusute1212.memotte.view.list.MemoListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
@@ -135,6 +136,7 @@
             android:id="@+id/edit_fragment"
             android:layout_width="0dp"
             android:layout_height="@dimen/edit_fragment_view_height"
+            android:name="io.github.emusute1212.memotte.view.edit.EditMemoFragment"
             android:background="@drawable/edit_memo_background"
             android:elevation="24dp"
             app:layout_constraintEnd_toEndOf="parent"
