@@ -24,6 +24,21 @@ jobs:
       - run:
           name: Run Tests
           command: ./gradlew lint test
+  create-app-bundle:
+    docker:
+      - image: circleci/android:api-29
+    steps:
+      # Checkout the code as the first step.
+      - checkout
+      - run:
+          name: Make google-service.json
+          command: echo $GOOGLE_SERVICE_BASE64 | base64 -d > android/google-services.json
+      - run:
+          name: Make keystore file
+          command: echo $KEYSTORE_BASE64 | base64 -d > upload-keystore.jks
+      - run:
+          name: Make App Bundle
+          command: ./gradlew :android:bundleRelease
 
 
 workflows:
@@ -34,3 +49,6 @@ workflows:
   android-ci:
     jobs:
       - build-and-test
+  android-cd:
+    jobs:
+      - create-app-bundle
