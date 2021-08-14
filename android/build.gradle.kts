@@ -49,8 +49,11 @@ android {
 }
 
 dependencies {
+    // Kotlin
     implementation(Dependencies.Kotlin.kotlin)
     implementation(Dependencies.Kotlin.coroutine)
+
+    // AndroidX
     implementation(Dependencies.Androidx.coreKtx)
     implementation(Dependencies.Androidx.appCompat)
     implementation(Dependencies.Androidx.material)
@@ -58,19 +61,33 @@ dependencies {
     implementation(Dependencies.Androidx.coordinatorLayout)
     implementation(Dependencies.Androidx.Lifecycle.ktx)
     implementation(Dependencies.Androidx.Lifecycle.commonJava8)
+
+    // Dagger
     implementation(Dependencies.Dagger.hiltCore)
     kapt(Dependencies.Dagger.annotationProcessor)
     implementation(Dependencies.JetPack.Room.runtime)
     kapt(Dependencies.JetPack.Room.compiler)
+
+    // JetPack
     implementation(Dependencies.JetPack.Room.ktx)
     implementation(Dependencies.JetPack.Fragment.ktx)
     implementation(Dependencies.JetPack.Activity.ktx)
+
+    // Threeten
     implementation(Dependencies.ThirdParty.threeTenAbp)
+
+    // Groupie
     implementation(Dependencies.ThirdParty.Groupie.core)
     implementation(Dependencies.ThirdParty.Groupie.databinding)
+
+    // OssLicense
     implementation(Dependencies.Google.ossLicenses)
+
+    // Firebase
     implementation(platform(Dependencies.Google.Firebase.bom))
     implementation(Dependencies.Google.Firebase.crashlytics)
+
+    // Test
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.jUnit)
     androidTestImplementation(Dependencies.AndroidTest.espresso)
