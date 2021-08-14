@@ -13,6 +13,7 @@ plugins {
 }
 
 android {
+    val shouldMakeApk = rootProject.file("upload-keystore.jks").exists()
     compileSdk = Versions.Memotte.compileSdk
 
     defaultConfig {
@@ -34,9 +35,23 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            if (shouldMakeApk) {
+                signingConfig = signingConfigs.create("release")
+            }
         }
         getByName("debug") {
             versionNameSuffix = "(debug)"
+        }
+    }
+    if (shouldMakeApk) {
+        signingConfigs {
+            getByName("release") {
+                // https://qiita.com/hkusu/items/cadb572c979c4d729567
+                storeFile = rootProject.file("upload-keystore.jks")
+                storePassword = System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("KEY_ALIAS")
+                keyPassword = System.getenv("KEY_PASSWORD")
+            }
         }
     }
     compileOptions {
