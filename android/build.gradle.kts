@@ -239,5 +239,5 @@ fun Project.addOssLicense(libName: String, licenseContent: String) {
 }
 
 // preBuild前にライセンス情報を追加する
-checkNotNull(tasks.findByPath(":app:preBuild"))
+checkNotNull(tasks.findByPath(":android:preBuild"))
     .dependsOn("addOssLicenseTask")
