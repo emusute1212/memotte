@@ -41,7 +41,7 @@ jobs:
           command: ./gradlew :android:bundleRelease
       - run:
           name: Find App Bundle File
-          command: AAB_PATH=$(find **/build/outputs/apk -name '*.aab' -type f | head -1)
+          command: AAB_PATH=$(find **/release -name '*.aab' -type f | head -1)
       - run:
           name: Upload apk file
           command: mv $AAB_PATH /tmp/artifact-1/output.aab
