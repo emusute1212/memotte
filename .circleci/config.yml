@@ -42,11 +42,8 @@ jobs:
       - run:
           name: Find App Bundle File
           command: AAB_PATH=$(find **/build/outputs/bundle -name '*.aab' -type f | head -1)
-      - run:
-          name: Upload aab file
-          command: mv $AAB_PATH /tmp/artifacts/output.aab
       - store_artifacts:
-          path: /tmp/artifacts
+          path: $AAB_PATH
 
 workflows:
   # Below is the definition of your workflow.
