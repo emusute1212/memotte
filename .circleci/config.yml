@@ -46,9 +46,10 @@ jobs:
           name: Upload aab file
           command: |
             mkdir /tmp/artifacts;
-            mv $AAB_PATH /tmp/output.aab;
+            mkdir /tmp/bundle;
+            mv $AAB_PATH /tmp/bundle/output.aab;
       - store_artifacts:
-          path: /tmp/output.aab
+          path: /tmp/bundle
           destination: artifact-file
       - store_artifacts:
           path: /tmp/artifacts
