@@ -48,8 +48,9 @@ jobs:
             mkdir /tmp/artifacts;
             mkdir /tmp/bundle;
             mv $AAB_PATH /tmp/bundle/output.aab;
+            zip /tmp/bundle.zip /tmp/bundle
       - store_artifacts:
-          path: /tmp/bundle
+          path: /tmp/bundle.zip
           destination: artifact-file
       - store_artifacts:
           path: /tmp/artifacts
