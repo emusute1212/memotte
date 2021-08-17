@@ -64,16 +64,14 @@
                         android:id="@+id/menu_button"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:elevation="10dp"
                         android:src="@drawable/ic_setting"
                         android:tint="@color/home_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/title_label"
                         app:layout_constraintEnd_toEndOf="@+id/toolbar_background"
-                        app:layout_constraintTop_toTopOf="@+id/toolbar_background"
+                        app:layout_constraintTop_toTopOf="@+id/title_label"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -134,9 +132,9 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/edit_fragment"
+            android:name="io.github.emusute1212.memotte.view.edit.EditMemoFragment"
             android:layout_width="0dp"
             android:layout_height="@dimen/edit_fragment_view_height"
-            android:name="io.github.emusute1212.memotte.view.edit.EditMemoFragment"
             android:background="@drawable/edit_memo_background"
             android:backgroundTint="@color/edit_background"
             android:elevation="24dp"
