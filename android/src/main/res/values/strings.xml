@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Memotte</string>
+    <string name="app_name">memotte</string>
 
     <!-- ホーム画面 -->
     <string name="memo_title">メモ</string>
