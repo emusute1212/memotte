@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">memotte</string>
+
+    <!-- ホーム画面 -->
+    <string name="memo_title">メモ</string>
+
+    <!-- 編集画面 -->
+    <string name="done">完了</string>
+    <string name="edit_memo_label">メモする</string>
+
+    <!-- 設定メニュー -->
+    <string name="about_app_title">このアプリについて</string>
+    <string name="license_title">ライセンス</string>
+    <string name="version_label">バージョン：</string>
+    <string name="author">Yosuke Miyanishi</string>
+    <string name="author_label">作成者：</string>
+    <string name="search_hint_label">キーワード検索</string>
+</resources>

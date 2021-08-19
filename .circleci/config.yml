@@ -1,8 +1,59 @@
- version: 2
- jobs:
-   build:
-     docker:
-       - image: circleci/ruby:2.4.1
-     steps:
-       - checkout
-       - run: echo "A first hello"
+# Use the latest 2.1 version of CircleCI pipeline process engine. 
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: circleci/android:api-30
+    steps:
+      - checkout
+      - run:
+          name: Make google-service.json
+          command: echo $GOOGLE_SERVICE_BASE64 | base64 -d > android/google-services.json
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - run:
+          name: Run Tests
+          command: ./gradlew lint test
+  create-app-bundle:
+    docker:
+      - image: circleci/android:api-30
+    steps:
+      - checkout
+      - run:
+          name: Make google-service.json
+          command: echo $GOOGLE_SERVICE_BASE64 | base64 -d > android/google-services.json
+      - run:
+          name: Make keystore file
+          command: echo $KEYSTORE_BASE64 | base64 -d > upload-keystore.jks
+      - run:
+          name: Make App Bundle
+          command: ./gradlew :android:bundleRelease
+      - run:
+          name: Upload aab file
+          command: |
+            export AAB_PATH=$(find **/build/outputs/bundle -name '*.aab' -type f | head -1)
+            mkdir /tmp/artifacts;
+            mkdir /tmp/bundle;
+            mv $AAB_PATH /tmp/bundle/output.aab;
+            zip -r /tmp/bundle.zip /tmp/bundle;
+      - store_artifacts:
+          path: /tmp/bundle.zip
+          destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
+
+workflows:
+  android-ci:
+    jobs:
+      - build-and-test
+  android-cd:
+    jobs:
+      - create-app-bundle:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/

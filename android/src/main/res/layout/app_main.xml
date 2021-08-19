@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="io.github.emusute1212.memotte.viewmodel.MemoListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/root_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/home_background"
+        android:focusableInTouchMode="true"
+        app:layoutDescription="@xml/activity_main_scene"
+        app:onTransitionToEndCompletedListener="@{viewModel::onOpenMemo}"
+        app:onTransitionToStartCompletedListener="@{viewModel::onCloseMemo}"
+        tools:context="io.github.emusute1212.memotte.MainActivity">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fitsSystemWindows="false"
+            app:layout_constraintBottom_toTopOf="@+id/edit_fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_max_height"
+                android:background="@color/home_background"
+                android:elevation="0dp"
+                android:fitsSystemWindows="false"
+                app:behavior_overlapTop="10dp">
+
+                <io.github.emusute1212.memotte.util.CollapsibleToolbar
+                    android:id="@+id/toolbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="10dp"
+                    android:fitsSystemWindows="false"
+                    android:minHeight="@dimen/toolbar_min_height"
+                    app:layoutDescription="@xml/scroll_header"
+                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+                    <View
+                        android:id="@+id/toolbar_background"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/toolbar_max_height"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/menu_button"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:elevation="10dp"
+                        android:src="@drawable/ic_setting"
+                        android:tint="@color/home_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/title_label"
+                        app:layout_constraintEnd_toEndOf="@+id/toolbar_background"
+                        app:layout_constraintTop_toTopOf="@+id/title_label"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/title_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/noto_sans_cjk_jp_bold"
+                        android:text="@string/memo_title"
+                        android:textColor="@color/home_content"
+                        android:textSize="30sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/toolbar_background"
+                        app:layout_constraintStart_toStartOf="@+id/toolbar_background"
+                        app:layout_constraintTop_toTopOf="@+id/toolbar_background" />
+
+                </io.github.emusute1212.memotte.util.CollapsibleToolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/memo_list_fragment"
+                android:name="io.github.emusute1212.memotte.view.list.MemoListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <Space
+            android:id="@+id/negative_margin"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edit_fragment_hide_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/touch_block_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0"
+            android:background="@color/off_screen"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_fragment_top_negative_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:id="@+id/edit_fragment_top_negative_margin"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edit_fragment_radius"
+            app:layout_constraintEnd_toEndOf="@+id/edit_fragment"
+            app:layout_constraintStart_toStartOf="@+id/edit_fragment"
+            app:layout_constraintTop_toTopOf="@+id/edit_fragment" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/edit_fragment"
+            android:name="io.github.emusute1212.memotte.view.edit.EditMemoFragment"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edit_fragment_view_height"
+            android:background="@drawable/edit_memo_background"
+            android:backgroundTint="@color/edit_background"
+            android:elevation="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/negative_margin" />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

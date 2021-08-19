@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="io.github.emusute1212.memotte.viewmodel.EditMemoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/edit_background"
+        android:background="@drawable/edit_memo_background">
+
+        <View
+            android:id="@+id/bar"
+            android:layout_width="@dimen/edit_bar_width"
+            android:layout_height="@dimen/edit_bar_height"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/edit_memo_bar_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/done_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:fontFamily="@font/noto_sans_cjk_jp_regular"
+            android:foreground="?android:selectableItemBackground"
+            android:includeFontPadding="false"
+            android:onClick="@{() -> viewModel.onSubmitMemo()}"
+            android:text="@string/done"
+            android:textColor="@color/memo_content"
+            android:textSize="14sp"
+            android:visibility="@{viewModel.content.length() == 0 ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/memo_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="start|top"
+            app:onGetFocus="@{() -> viewModel.onClickMemoEditText()}"
+            android:hint="@string/edit_memo_label"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="textMultiLine"
+            android:padding="2dp"
+            android:text="@={viewModel.content}"
+            android:textColor="@color/memo_content"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/delete_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/done_button"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_goneMarginBottom="16dp" />
+
+        <ImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:onClick="@{() -> viewModel.onDeleteMemo()}"
+            android:src="@drawable/ic_delete"
+            android:tint="@color/memo_content"
+            android:visibility="@{viewModel.isEditing ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
