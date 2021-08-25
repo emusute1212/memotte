@@ -34,6 +34,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.github.emusute1212.memotte.MainActivity" />
         </activity>
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
+            android:theme="@style/Theme.Setting" />
     </application>
 
 </manifest>
